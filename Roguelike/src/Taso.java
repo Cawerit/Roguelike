@@ -5,9 +5,26 @@ import java.util.Scanner;
 public class Taso {
 	private Kartta kartta;
 	
+	/**
+	 * @return the kartta
+	 */
+	public Kartta getKartta() {
+		return kartta;
+	}
+
+
+	/**
+	 * @param kartta the kartta to set
+	 */
+	public void setKartta(Kartta kartta) {
+		this.kartta = kartta;
+	}
+
+
 	public Taso(){
 		kartta = new Kartta();
 	}
+	
 	
 	public void lueKartta() throws IOException{
 	File tiedosto = new File("Kartta2.txt");
@@ -23,7 +40,6 @@ public class Taso {
 			}
 			riviNumero++;
 		}
-		lukija.close();
 	} catch (IOException e) {
 	       e.printStackTrace();
 	   }
@@ -34,7 +50,7 @@ public class Taso {
 	}
 	
 	public void paivitaTaso(){
-		kartta.karttaRuudulle();
+		System.out.println(kartta.karttaRuudulle());
 	}
 	
 }

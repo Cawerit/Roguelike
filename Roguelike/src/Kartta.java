@@ -3,9 +3,10 @@ public class Kartta {
 	private char[][] arvot;
 	
 	public Kartta(){
-		arvot = new char[20][100];
+		arvot = new char[20][70];
 	}
-	
+
+
 	public char annaArvo(int x, int y){
 		return arvot[x][y];
 	}
@@ -15,12 +16,14 @@ public class Kartta {
 	public int annaRivienLkm(){
 		return arvot.length;
 	}
-	public void karttaRuudulle(){
+	public String karttaRuudulle(){
+		String palaute = "";
 		for(int i = 0; i < arvot.length; i++){
-			System.out.print("\n");
+			palaute += "\n";
 			for(int j = 0; j < arvot[i].length; j++){
-				System.out.print(arvot[i][j]);
+				palaute += arvot[i][j];
 			}
 		}
+		return palaute;
 	}
 }
