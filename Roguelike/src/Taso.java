@@ -5,26 +5,9 @@ import java.util.Scanner;
 public class Taso {
 	private Kartta kartta;
 	
-	/**
-	 * @return the kartta
-	 */
-	public Kartta getKartta() {
-		return kartta;
-	}
-
-
-	/**
-	 * @param kartta the kartta to set
-	 */
-	public void setKartta(Kartta kartta) {
-		this.kartta = kartta;
-	}
-
-
 	public Taso(){
 		kartta = new Kartta();
 	}
-	
 	
 	public void lueKartta() throws IOException{
 	File tiedosto = new File("Kartta2.txt");
@@ -40,6 +23,7 @@ public class Taso {
 			}
 			riviNumero++;
 		}
+		lukija.close();
 	} catch (IOException e) {
 	       e.printStackTrace();
 	   }
@@ -50,7 +34,28 @@ public class Taso {
 	}
 	
 	public void paivitaTaso(){
-		System.out.println(kartta.karttaRuudulle());
+		/*
+		 * Ennen kartan uudelleenpäivitystä edellinen täytyy poistaa. 
+		 * Komento on käyttöjärjestelmäkohtainen, joten käytetään try-catch - ominaisuutta avuksi. 
+		 */
+		try
+	    {
+	        final String os = System.getProperty("os.name");
+
+	        if (os.contains("Windows"))
+	        {
+	            Runtime.getRuntime().exec("cls");
+	        }
+	        else
+	        {
+	            Runtime.getRuntime().exec("clear");
+	        }
+	    }
+	    catch (final Exception e)
+	    {
+	        System.out.println("Virhe!");
+	    }
+		kartta.karttaRuudulle();
 	}
 	
 }
