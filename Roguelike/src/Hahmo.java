@@ -7,6 +7,7 @@ public class Hahmo implements Liikkuminen {
 	protected int xKoord;
 	protected int yKoord;
 	protected char symboli;
+	protected char allaOleva;
 	
 	
 	
@@ -20,7 +21,7 @@ public class Hahmo implements Liikkuminen {
 	 * @param symboli
 	 */
 	public Hahmo(String nimi, int healthPoints, int strength, int accuracy,
-			int xKoord, int yKoord, char symboli) {
+			int xKoord, int yKoord, char symboli, Taso t) {
 		super();
 		this.nimi = nimi;
 		this.healthPoints = healthPoints;
@@ -29,6 +30,7 @@ public class Hahmo implements Liikkuminen {
 		this.xKoord = xKoord;
 		this.yKoord = yKoord;
 		this.symboli = symboli;
+		this.allaOleva = (t.annaKartta()).annaArvot()[xKoord][yKoord];
 	}
 	
 	//Getterit ja Setterit
@@ -116,42 +118,64 @@ public class Hahmo implements Liikkuminen {
 	public void setSymboli(char symboli) {
 		this.symboli = symboli;
 	}
+	/**
+	 * @return the allaOleva
+	 */
+	public char getAllaOleva() {
+		return allaOleva;
+	}
+	/**
+	 * @param allaOleva the allaOleva to set
+	 */
+	public void setAllaOleva(Taso t) {
+		char allaOleva = (t.annaKartta()).annaArvot()[this.getXKoord()][this.getYKoord()];
+		this.allaOleva = allaOleva;
+	}
 
 	public boolean liikuOikealle(Taso taso){
 		if(taso.onkoLaillinenPaikka(this.xKoord, this.yKoord+1)){
+			(taso.annaKartta()).asetaArvo(this.getXKoord(), this.getYKoord(), this.getAllaOleva()); 
 			taso.asetaHahmoKartalle(this.xKoord, this.yKoord+1, this);
 			this.yKoord++;
+			this.setAllaOleva(taso);
 			return true;
 		}
 		return false;
 	}
 	public boolean liikuVasemmalle(Taso taso){
 		if(taso.onkoLaillinenPaikka(this.xKoord, this.yKoord-1)){
+			(taso.annaKartta()).asetaArvo(this.getXKoord(), this.getYKoord(), this.getAllaOleva());
 			taso.asetaHahmoKartalle(this.xKoord, this.yKoord-1, this);
 			this.yKoord--;
+			this.setAllaOleva(taso);
 			return true;
 		}
 		return false;
 	}
 	public boolean liikuYlos(Taso taso){
 		if(taso.onkoLaillinenPaikka(this.xKoord-1, this.yKoord)){
+			(taso.annaKartta()).asetaArvo(this.getXKoord(), this.getYKoord(), this.getAllaOleva());
 			taso.asetaHahmoKartalle(this.xKoord-1, this.yKoord, this);
 			this.xKoord--;
+			this.setAllaOleva(taso);
 			return true;
 		}
 		return false;
 	}
 	public boolean liikuAlas(Taso taso){
 		if(taso.onkoLaillinenPaikka(this.xKoord+1, this.yKoord+1)){
+			(taso.annaKartta()).asetaArvo(this.getXKoord(), this.getYKoord(), this.getAllaOleva());
 			taso.asetaHahmoKartalle(this.xKoord+1, this.yKoord, this);
 			this.xKoord++;
+			this.setAllaOleva(taso);
 			return true;
 		}
 		return false;
 	}
+	
 }
 	
-	
+
 
 	
 	

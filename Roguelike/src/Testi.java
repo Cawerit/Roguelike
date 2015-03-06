@@ -13,9 +13,9 @@ public class Testi {
 			e.printStackTrace();
 		}
 
-	Sankari s = new Sankari("KILLERMASTER", 100, 30, 10, 2, 6, '@');
+	Sankari s = new Sankari("KILLERMASTER", 100, 30, 10, 2, 6, '@', taso);
 	
-	Grafiikka g = new Grafiikka();
+	//Grafiikka g = new Grafiikka();
 	
 	
 	taso.asetaHahmoKartalle(s.getXKoord(), s.getYKoord(), s);

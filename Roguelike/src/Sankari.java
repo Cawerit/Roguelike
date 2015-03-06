@@ -11,11 +11,13 @@ public class Sankari extends Hahmo{
 	 * @param yKoord
 	 * @param symboli
 	 */
-	public Sankari(String nimi, int healthPoints, int strength, int accuracy, int xKoord, int yKoord, char symboli) {
-		super(nimi, healthPoints, strength, accuracy, xKoord, yKoord, symboli);
+	public Sankari(String nimi, int healthPoints, int strength, int accuracy, int xKoord, int yKoord, char symboli, Taso t) {
+		super(nimi, healthPoints, strength, accuracy, xKoord, yKoord, symboli, t);
 	}
 	
-	
+	public void hyokkaa(Hirvio h) {
+		
+	}
 
 
 	

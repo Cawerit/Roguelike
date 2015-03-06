@@ -38,11 +38,14 @@ public class Taso {
 	}
 	
 	public void paivitaTaso(){
+		
 		/*
 		 * Ennen kartan uudelleenpäivitystä edellinen täytyy poistaa. 
 		 * Komento on käyttöjärjestelmäkohtainen, joten käytetään try-catch - ominaisuutta avuksi. 
 		 */
-/*		try
+		
+		/* Jostain syystä ei toimi, ehkä johtuu suomenkielisestä käyttöjärjestelmästä?
+		try
 	    {
 	        final String os = System.getProperty("os.name");
 
@@ -61,7 +64,9 @@ public class Taso {
 	    }
 		finally{
 		System.out.println(kartta.karttaRuudulle());
-		}*/
+		}
+		*/
+		
 		System.out.println(kartta.karttaRuudulle());
 		}
 	
