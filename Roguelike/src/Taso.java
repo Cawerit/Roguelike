@@ -9,6 +9,10 @@ public class Taso {
 		kartta = new Kartta();
 	}
 	
+	public Kartta annaKartta(){
+		return kartta;
+	}
+	
 	public void lueKartta() throws IOException{
 	File tiedosto = new File("Kartta2.txt");
 	
@@ -38,7 +42,7 @@ public class Taso {
 		 * Ennen kartan uudelleenpäivitystä edellinen täytyy poistaa. 
 		 * Komento on käyttöjärjestelmäkohtainen, joten käytetään try-catch - ominaisuutta avuksi. 
 		 */
-		try
+/*		try
 	    {
 	        final String os = System.getProperty("os.name");
 
@@ -55,7 +59,17 @@ public class Taso {
 	    {
 	        System.out.println("Virhe!");
 	    }
-		kartta.karttaRuudulle();
+		finally{
+		System.out.println(kartta.karttaRuudulle());
+		}*/
+		System.out.println(kartta.karttaRuudulle());
+		}
+	
+	public boolean onkoLaillinenPaikka(int x, int y){
+		if(kartta.annaArvo(x, y) == ':' || kartta.annaArvo(x, y) == '#'){
+			return true;
+		}
+		return false;
 	}
 	
 }

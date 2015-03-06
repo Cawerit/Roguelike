@@ -9,6 +9,7 @@ public class Hahmo implements Liikkuminen {
 	protected char symboli;
 	
 	
+	
 	/**
 	 * @param nimi
 	 * @param healthPoints
@@ -116,4 +117,42 @@ public class Hahmo implements Liikkuminen {
 		this.symboli = symboli;
 	}
 
+	public boolean liikuOikealle(Taso taso){
+		if(taso.onkoLaillinenPaikka(this.xKoord, this.yKoord+1)){
+			taso.asetaHahmoKartalle(this.xKoord, this.yKoord+1, this);
+			this.yKoord++;
+			return true;
+		}
+		return false;
+	}
+	public boolean liikuVasemmalle(Taso taso){
+		if(taso.onkoLaillinenPaikka(this.xKoord, this.yKoord-1)){
+			taso.asetaHahmoKartalle(this.xKoord, this.yKoord-1, this);
+			this.yKoord--;
+			return true;
+		}
+		return false;
+	}
+	public boolean liikuYlos(Taso taso){
+		if(taso.onkoLaillinenPaikka(this.xKoord-1, this.yKoord)){
+			taso.asetaHahmoKartalle(this.xKoord-1, this.yKoord, this);
+			this.xKoord--;
+			return true;
+		}
+		return false;
+	}
+	public boolean liikuAlas(Taso taso){
+		if(taso.onkoLaillinenPaikka(this.xKoord+1, this.yKoord+1)){
+			taso.asetaHahmoKartalle(this.xKoord+1, this.yKoord, this);
+			this.xKoord++;
+			return true;
+		}
+		return false;
+	}
 }
+	
+	
+
+	
+	
+

@@ -5,7 +5,10 @@ public class Kartta {
 	public Kartta(){
 		arvot = new char[20][70];
 	}
-
+	
+	public char[][] annaArvot(){
+		return arvot;
+	}
 
 	public char annaArvo(int x, int y){
 		return arvot[x][y];

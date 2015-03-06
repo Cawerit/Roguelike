@@ -12,15 +12,37 @@ public class Testi {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-	System.out.println("MOI");
-	
-	
+
 	Sankari s = new Sankari("KILLERMASTER", 100, 30, 10, 2, 6, '@');
+	
+	Grafiikka g = new Grafiikka();
+	
+	
 	taso.asetaHahmoKartalle(s.getXKoord(), s.getYKoord(), s);
 	taso.paivitaTaso();
 	// s.liiku(new KeyEvent());		Miten t‰m‰ tehd‰‰n???
 	
+	taso.paivitaTaso();
+	s.liikuOikealle(taso);
+	taso.paivitaTaso();
+	s.liikuOikealle(taso);
+	taso.paivitaTaso();
+	s.liikuOikealle(taso);
+	taso.paivitaTaso();
+	s.liikuOikealle(taso);
+
+	taso.paivitaTaso();
+	s.liikuOikealle(taso);
+	taso.paivitaTaso();
+	s.liikuAlas(taso);
+	taso.paivitaTaso();
+	s.liikuAlas(taso);
+	taso.paivitaTaso();
+	s.liikuVasemmalle(taso);
+	taso.paivitaTaso();
+	s.liikuVasemmalle(taso);
+	taso.paivitaTaso();
+	s.liikuYlos(taso);
 	taso.paivitaTaso();
 	}
 }
